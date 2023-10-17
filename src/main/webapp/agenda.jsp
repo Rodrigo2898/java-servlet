@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="br.com.rodrigofeitosa.model.JavaBeans"%>
-<%@ page import="java.util.ArrayList"%>
+<%@ page import="br.com.rodrigofeitosa.entity.Pessoa"%>
+<%@ page import="java.util.List"%>
 <%
     out.println("TESTE");
-    ArrayList<JavaBeans> lista = (ArrayList<JavaBeans>) request.getAttribute("profissoes");
+    List<Pessoa> pessoaList = (List<Pessoa>) request.getAttribute("profissoes");
     out.println("CHEGOU AQUI");
 %>
 <!DOCTYPE html>
@@ -26,14 +26,14 @@
                 </tr>
             </thead>
             <tbody>
-                <% for (int i = 0; i < lista.size(); i++) { %>
+                <% for (int i = 0; i < pessoaList.size(); i++) { %>
                     <tr>
-                        <td><%=lista.get(i).getIdcon()%></td>
-                        <td><%=lista.get(i).getNome()%></td>
-                        <td><%=lista.get(i).getIdade()%></td>
-                        <td><%=lista.get(i).getProfissao()%></td>
-                        <td><a href="select?idcon=<%=lista.get(i).getIdcon()%>">Editar</a>
-                            <a href="javascript: confirmar(<%=lista.get(i).getIdcon()%>)">Excluir</a>
+                        <td><%=pessoaList.get(i).getId()%></td>
+                        <td><%=pessoaList.get(i).getNome()%></td>
+                        <td><%=pessoaList.get(i).getIdade()%></td>
+                        <td><%=pessoaList.get(i).getProfissao()%></td>
+                        <td><a href="select?idcon=<%=pessoaList.get(i).getId()%>">Editar</a>
+                            <a href="javascript: confirmar(<%=pessoaList.get(i).getId()%>)">Excluir</a>
                         </td>
                     </tr>
                 <% } %>
